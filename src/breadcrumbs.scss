@@ -1,0 +1,96 @@
+$color1: rgb(241, 146, 95);
+$color2: rgb(224, 180, 117);
+$color3: rgb(133, 66, 39);
+$color4: rgb(204, 124, 81);
+$white: #fff;
+$size: 821px;
+
+@media (min-width: $size) {
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+    background-color: $color4;
+    border-radius: 0 100vh 100vh 0;
+    margin: 0;
+    padding-left: 0;
+
+    li {
+      position: relative;
+      z-index: 2;
+      &:first-of-type {
+        z-index: 3;
+        width: 20vh;
+      }
+      width: 33vh;
+      transition: all 1s ease-out;
+      display: inline-block;
+      background-color: $color2;
+      border: solid;
+      border-width: thick;
+      border-radius: 0 100vh 100vh 0;
+      border-color: $color4;
+      padding: 2vh;
+      padding-left: 6vh;
+      margin-left: -5vh;
+      svg {
+        color: $color3;
+        transition: all 1s ease-out;
+      }
+      .path_name {
+        overflow: hidden;
+        display: inline;
+        transition: all 1s ease-out;
+        color: $color3;
+      }
+      .icon {
+        display: inline;
+        margin-left: 1vh;
+      }
+      &:hover {
+        background-color: $color1;
+        .path_name {
+          color: $white;
+          display: inline;
+        }
+        svg {
+          color: $white;
+        }
+      }
+      &:last-of-type {
+        z-index: 1;
+        width: 33vh;
+        background-color: $color4;
+        .path_name,
+        svg {
+          color: $color2;
+        }
+      }
+    }
+  }
+}
+@media (max-width: calc($size - 1px)) {
+  .breadcrumb {
+    background-color: $color2;
+    padding: 2vh;
+    display: grid;
+    justify-content: end;
+    grid-auto-flow: column;
+    column-gap: 1em;
+    margin: 0;
+    .icon {
+      display: none;
+    }
+    a {
+      color: $color3;
+    }
+    li {
+      list-style: none;
+    }
+    .path_name:not(:nth-last-child(1)):after {
+      display: inline-block;
+      content: "/";
+      padding-left: 1vh;
+    }
+  }
+}

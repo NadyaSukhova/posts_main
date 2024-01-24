@@ -1,0 +1,108 @@
+$brown: rgb(136, 105, 76);
+$size: 820px;
+
+@font-face {
+  font-family: Comfort;
+  src: url("./assets/Comfortaa-Regular.ttf");
+}
+
+* {
+  font-family: Comfort;
+}
+
+html {
+  min-height: 100%;
+  background-color: rgb(243, 243, 233);
+  background-image: url("./assets/topL.jpg"), url("./assets/topR.jpg"),
+    url("./assets/bottomL.jpg"), url("./assets/bottomR.jpg");
+  background-position: top left, top right, bottom left, bottom right;
+  background-repeat: no-repeat;
+  background-size: 25vw auto, 25vw auto, 25vw auto, 25vw auto;
+}
+
+body {
+  margin: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+.posts {
+  margin-top: 15vw;
+  margin-bottom: 15vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.post {
+  background-color: rgb(255, 255, 255);
+  opacity: 0.4;
+  padding: 3vh;
+  margin: 2vh;
+  border-radius: 15px;
+  box-shadow: 0 0 10px $brown;
+  transition: opacity 1s, box-shadow 1s;
+  width: 40vh;
+  position: relative;
+  &:hover {
+    opacity: 1;
+    box-shadow: 0 0 30px rgb(255, 196, 156);
+  }
+
+  hr {
+    border-top: 0.5vh dotted $brown;
+    text-decoration: none;
+  }
+
+  .post_info {
+    height: 100%;
+  }
+
+  .post_numb {
+    margin-bottom: 3vh;
+    font-weight: 600;
+    font-size: 3vh;
+    text-decoration: none;
+    color: $brown;
+  }
+  .post_title {
+    text-align: center;
+    a {
+      text-align: center;
+      font-weight: 500;
+      font-size: 3vh;
+      color: rgb(208, 131, 89);
+      text-align: center;
+      margin-bottom: 3vh;
+    }
+  }
+  .post_body {
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+    font-size: 2.2vh;
+    white-space: pre-wrap;
+    color: $brown;
+  }
+  .post_author {
+    text-align: right;
+    font-size: 1.7vh;
+    color: $brown;
+    position: absolute;
+    bottom: 2vh;
+    right: 2vh;
+    p {
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: $size) {
+  .post {
+    width: 80vw;
+  }
+
+}
